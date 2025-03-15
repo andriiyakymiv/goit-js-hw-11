@@ -60,3 +60,13 @@ body {
 main {
     overflow-x: hidden;
 }
+
+/* Card */
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-info {
+    display: flex;
+}
