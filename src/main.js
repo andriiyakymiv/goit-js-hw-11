@@ -1,4 +1,7 @@
 import { createGalleryCardMarkup } from './js/render-functions';
+import { fetchPhotosByQuery } from './js/pixabay-api';
+
+console.log(fetchPhotosByQuery);
 
 const refs = {
   searchForm: document.querySelector('.form'),
@@ -12,18 +15,7 @@ const onSearchFormSubmit = event => {
     alert('Enter text in the search field');
     return;
   }
-  fetch(
-    `https://pixabay.com/api/?key=49359014-7397220ae93b07f148b4c236e&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`
-  )
-    //   ---------------------
-    .then(response => {
-      // перевірка на помилку
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    // ----------------------------
+  fetchPhotosByQuery(query)
     .then(({ hits }) => {
       if (hits.length === 0) {
         alert('Add box'); // додаємо повідомлення про те що такого значення немає
