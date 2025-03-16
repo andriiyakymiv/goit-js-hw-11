@@ -1,8 +1,6 @@
 import { createGalleryCardMarkup } from './js/render-functions';
 import { fetchPhotosByQuery } from './js/pixabay-api';
 
-console.log(fetchPhotosByQuery);
-
 const refs = {
   searchForm: document.querySelector('.form'),
   gallery: document.querySelector('.gallery'),
