@@ -10,11 +10,14 @@ const refs = {
 
 const onSearchFormSubmit = event => {
   event.preventDefault();
+
   const query = event.currentTarget.elements.search_text.value.trim();
+
   if (query === '') {
     alert('Enter text in the search field');
     return;
   }
+
   fetchPhotosByQuery(query)
     .then(({ hits }) => {
       // додаємо повідомлення про те що такого значення немає
@@ -41,6 +44,7 @@ const onSearchFormSubmit = event => {
         .map(img => createGalleryCardMarkup(img))
         .join('');
       refs.gallery.innerHTML = galleryCardsTemplate;
+      refs.searchForm.reset();
     })
 
     .catch(err => {
