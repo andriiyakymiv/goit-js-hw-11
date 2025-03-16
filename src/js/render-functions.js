@@ -10,7 +10,7 @@ export const createGalleryCardMarkup = ({
   return `
     <li class="gallery-card">
         <img class="gallery-images" src="${linkSmallImg}" alt="${descriptionImg}">
-        <img class="gallery-images" src="${linkLargeImg}" alt="${descriptionImg}">
+        
         <ul class="gallery-info">
           <li class="gallery-info-item">
             <p class="gallery-info-title">Likes</p>
@@ -32,3 +32,5 @@ export const createGalleryCardMarkup = ({
       </li>
     `;
 };
+
+// <img class="gallery-images" src="${linkLargeImg}" alt="${descriptionImg}">

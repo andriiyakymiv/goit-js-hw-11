@@ -62,12 +62,134 @@ main {
     overflow-x: hidden;
 }
 
+/* Form */
+
+.search__form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 36px;
+    padding-bottom: 32px;
+}
+
+.form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.search__form-input {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 8px;
+    width: 272px;
+    height: 40px;
+    padding: 8px 16px;
+    outline: transparent;
+    border-radius: 4px;
+    border: 1px solid #808080;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #808080;
+    transition: border linear 100ms;
+
+    &:hover, &:focus {
+        border: 1px solid #000000;
+    }
+}
+
+.search__form-button {
+    border-style: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background: #4e75ff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+
+    &:hover{
+        background: #6c8cff;
+    }
+
+}
+
+/* Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 156px;
+    gap: 24px;
+
+}
+
+
+
+
 /* Card */
+.gallery-images {
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    width: 360px;
+    height: 200px;
+    border: 1px solid #808080;
+    
+}
+
 .gallery-card {
+    position: relative;
     display: flex;
     flex-direction: column;
+    max-width:  360px;
+    height: 200px;
+    flex-basis: calc((100% - 48px)/3);
+    
 }
 
 .gallery-info {
     display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 360px;
+    height: 48px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+    background: #ffffff;
+}
+
+.gallery-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.gallery-info-title {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.33333;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+}
+
+.gallery-info-value {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
 }
