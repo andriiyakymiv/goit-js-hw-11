@@ -1,5 +1,6 @@
 import { createGalleryCardMarkup } from './js/render-functions';
 import { fetchPhotosByQuery } from './js/pixabay-api';
+import iziToast from 'izitoast';
 
 const refs = {
   searchForm: document.querySelector('.form'),
@@ -16,7 +17,12 @@ const onSearchFormSubmit = event => {
   fetchPhotosByQuery(query)
     .then(({ hits }) => {
       if (hits.length === 0) {
-        alert('Add box'); // додаємо повідомлення про те що такого значення немає
+        iziToast.error({
+          title: 'Error',
+          message: 'Illegal operation',
+        });
+
+        // alert('Add box'); // додаємо повідомлення про те що такого значення немає
         refs.searchForm.reset(); //clear form
         refs.gallery.innerHTML = ''; // чистимо галерею
         return;
