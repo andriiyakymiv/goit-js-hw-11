@@ -1,6 +1,7 @@
 import { createGalleryCardMarkup } from './js/render-functions';
 import { fetchPhotosByQuery } from './js/pixabay-api';
 import iziToast from 'izitoast';
+import iconError from './img/icon/icon-error.svg';
 
 const refs = {
   searchForm: document.querySelector('.form'),
@@ -16,13 +17,21 @@ const onSearchFormSubmit = event => {
   }
   fetchPhotosByQuery(query)
     .then(({ hits }) => {
+      // додаємо повідомлення про те що такого значення немає
       if (hits.length === 0) {
         iziToast.error({
-          title: 'Error',
-          message: 'Illegal operation',
+          position: 'topRight',
+          message:
+            'Sorry, there are no images matching your search query. Please, try again!',
+          messageSize: '16px',
+          messageColor: '#ffffff',
+          timeout: 3000,
+          pauseOnHover: true,
+          backgroundColor: '#EF4040',
+          iconUrl: iconError,
+          layout: 2,
         });
 
-        // alert('Add box'); // додаємо повідомлення про те що такого значення немає
         refs.searchForm.reset(); //clear form
         refs.gallery.innerHTML = ''; // чистимо галерею
         return;
