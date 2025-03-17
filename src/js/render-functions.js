@@ -9,7 +9,7 @@ export const createGalleryCardMarkup = ({
   downloads,
 }) => {
   return `
-    <li class="gallery-card">
+    <li class="gallery-items">
         <a class="gallery-link" href="${linkLargeImg}">
         <img class="gallery-images" src="${linkSmallImg}" alt="${descriptionImg}">
         <ul class="gallery-info">

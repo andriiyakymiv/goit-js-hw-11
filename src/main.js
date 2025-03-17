@@ -6,6 +6,17 @@ import iconError from './img/icon/icon-error.svg';
 const refs = {
   searchForm: document.querySelector('.form'),
   gallery: document.querySelector('.gallery'),
+  backdrop: document.querySelector('.backdrop'),
+};
+
+// Function to show the loader
+const showLoader = () => {
+  refs.backdrop.classList.remove('is-hidden');
+};
+
+// Function to hide the loader
+const hideLoader = () => {
+  refs.backdrop.classList.add('is-hidden');
 };
 
 const onSearchFormSubmit = event => {
@@ -17,6 +28,8 @@ const onSearchFormSubmit = event => {
     alert('Enter text in the search field');
     return;
   }
+
+  showLoader();
 
   fetchPhotosByQuery(query)
     .then(({ hits }) => {
@@ -47,9 +60,11 @@ const onSearchFormSubmit = event => {
       createLightBox();
       refs.searchForm.reset();
     })
-
     .catch(err => {
       console.log(err);
+    })
+    .finally(() => {
+      hideLoader();
     });
 };
 
