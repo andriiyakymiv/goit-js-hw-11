@@ -1,4 +1,4 @@
-import { createGalleryCardMarkup } from './js/render-functions';
+import { createGalleryCardMarkup, createLightBox } from './js/render-functions';
 import { fetchPhotosByQuery } from './js/pixabay-api';
 import iziToast from 'izitoast';
 import iconError from './img/icon/icon-error.svg';
@@ -44,6 +44,7 @@ const onSearchFormSubmit = event => {
         .map(img => createGalleryCardMarkup(img))
         .join('');
       refs.gallery.innerHTML = galleryCardsTemplate;
+      createLightBox();
       refs.searchForm.reset();
     })
 
