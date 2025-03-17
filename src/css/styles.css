@@ -196,16 +196,15 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0 156px;
+    justify-content: center;
+    margin: 0 auto;
     gap: 24px;
 }
 
 /* Card */
 .gallery-images {
-    display: flex;
-    justify-content: center;
     object-fit: cover;
-    width: 360px;
+    width: 100%;
     height: 200px;
     border: 1px solid #808080;
     
@@ -213,12 +212,9 @@ main {
 
 .gallery-items {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    max-width:  360px;
-    height: 200px;
-    flex-basis: calc((100% - 48px)/3);
-    
+    width: 360px;
+    flex-basis: calc((1128px - 24px * 2) / 3);
+    cursor: pointer;
 }
 
 .gallery-info {
@@ -227,7 +223,7 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 360px;
+    width: 100%;
     height: 48px;
     padding-top: 4px;
     padding-bottom: 4px;

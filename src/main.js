@@ -9,15 +9,17 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
 };
 
-// Function to show the loader
+// Function to show loader
 const showLoader = () => {
   refs.backdrop.classList.remove('is-hidden');
 };
 
-// Function to hide the loader
+// Function to hide loader
 const hideLoader = () => {
   refs.backdrop.classList.add('is-hidden');
 };
+
+// Retrieving data from the server to create a gallery
 
 const onSearchFormSubmit = event => {
   event.preventDefault();
@@ -33,7 +35,7 @@ const onSearchFormSubmit = event => {
 
   fetchPhotosByQuery(query)
     .then(({ hits }) => {
-      // додаємо повідомлення про те що такого значення немає
+      // We add a message that there is no such value
       if (hits.length === 0) {
         iziToast.error({
           position: 'topRight',
@@ -49,7 +51,7 @@ const onSearchFormSubmit = event => {
         });
 
         refs.searchForm.reset(); //clear form
-        refs.gallery.innerHTML = ''; // чистимо галерею
+        refs.gallery.innerHTML = ''; //cleaning the gallery
         return;
       }
 
