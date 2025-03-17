@@ -1,3 +1,4 @@
+import SimpleLightbox from 'simplelightbox';
 export const createGalleryCardMarkup = ({
   webformatURL: linkSmallImg,
   largeImageURL: linkLargeImg,
@@ -9,8 +10,8 @@ export const createGalleryCardMarkup = ({
 }) => {
   return `
     <li class="gallery-card">
+        <a class="gallery-link" href="${linkLargeImg}">
         <img class="gallery-images" src="${linkSmallImg}" alt="${descriptionImg}">
-        
         <ul class="gallery-info">
           <li class="gallery-info-item">
             <p class="gallery-info-title">Likes</p>
@@ -33,4 +34,11 @@ export const createGalleryCardMarkup = ({
     `;
 };
 
-// <img class="gallery-images" src="${linkLargeImg}" alt="${descriptionImg}">
+export const createLightBox = function () {
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionDelay: 250,
+    captionsData: 'alt',
+  });
+  lightbox.refresh();
+};
